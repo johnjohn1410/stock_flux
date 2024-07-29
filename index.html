@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockFlux - Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>StockFlux</h2>
+    <a href="suspencoes.html">Suspensão</a>
+    <a href="insights.html">Insights</a>
+    <a href="avisos.html">Avisos</a>
+    <a href="controle.html">Controle</a>
+</div>
+
+<div class="main-content">
+    <div class="header">
+        <img src="./assets/images/logo.png" alt="Logo">
+        <span>Bem-vindo, Usuário!</span>
+        <button class="logout" onclick="logout()">Logout</button>
+    </div>
+    <div class="panel">
+        <div class="charts">
+            <div class="chart">
+                <h4>Gráfico 1</h4>
+                <!-- Aqui você pode usar uma biblioteca de gráficos como Chart.js -->
+                <canvas id="chart1"></canvas>
+            </div>
+            <div class="chart">
+                <h4>Gráfico 2</h4>
+                <canvas id="chart2"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <h3>Atalhos Rápidos</h3>
+        <p>Use os atalhos abaixo para ações rápidas:</p>
+        <button class="button" onclick="location.href='suspensoes.html'">Ver Suspensões</button>
+        <button class="button" onclick="location.href='insights.html'">Ver Insights</button>
+        <button class="button" onclick="location.href='avisos.html'">Ver Avisos</button>
+        <button class="button" onclick="location.href='controle.html'">Ver Controle</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./assets/js/main.js"></script>
+
+</body>
+</html>
