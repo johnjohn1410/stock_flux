@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=100vw, initial-scale=1.0">
+    <title>Medicamentos</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles_grid.css">
+</head>
+<body>
+    <div class="container">
+        <h1>StockFlux</h1>
+        <h2>Medicamentos</h2>
+        <div class="filtro">
+            <input type="text" id="search" placeholder="Pesquisar produtos" onkeyup="searchProduct()">
+        </div>
+
+        <table class="grid">
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Motivo</th>
+                    <th>Nome</th>
+                    <th>Código</th>
+                    <th>Quantidade</th>
+                    <th>Localização</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="medicamentoTableBody">
+                <!-- As linhas serão inseridas aqui pelo JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Função para buscar as credenciais do arquivo JSON
+        async function loadCredentials() {
+            const response = await fetch('./credentials.json');
+            const credentials = await response.json();
+            return credentials;
+        }
+
+        // Função para buscar dados da API e popular a tabela
+        async function fetchMedicamentos() {
+            debugger;
+            const credentials = await loadCredentials();
+
+            try {
+                const response = await fetch(`http://127.0.0.1:5000/get_medicamentos`);
+                const data = await response.json();
+
+                const tableBody = document.getElementById('medicamentoTableBody');
+                tableBody.innerHTML = ''; // Limpa o corpo da tabela antes de adicionar novas linhas
+
+                data.forEach(item => {
+                    const row = document.createElement('tr');
+
+                    row.innerHTML = `
+                        <td>${item.Categoria}</td>
+                        <td>${item.Motivo}</td>
+                        <td>${item.Nome}</td>
+                        <td>${item.Código}</td>
+                        <td>${item['Quantidade Minima']}</td>
+                        <td>${item.Localização}</td>
+                        <td>${item.Status}</td>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar medicamentos:', error);
+            }
+        }
+
+        // Função de pesquisa
+        function searchProduct() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const rows = document.querySelectorAll('#medicamentoTableBody tr');
+
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName('td');
+                let found = false;
+
+                for (let i = 0; i < cells.length; i++) {
+                    if (cells[i].textContent.toLowerCase().includes(filter)) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                row.style.display = found ? '' : 'none';
+            });
+        }
+
+        // Buscar medicamentos quando a página carregar
+        window.onload = fetchMedicamentos;
+    </script>
+</body>
+</html>

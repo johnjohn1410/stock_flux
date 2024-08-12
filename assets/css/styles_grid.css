@@ -1,0 +1,52 @@
+.grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    text-align: left;
+}
+
+    .grid thead tr {
+        background-color: #f2f2f2;
+        color: #333;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .grid th, .grid td {
+        width: 10%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+    }
+
+    .grid tbody tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+        .grid tbody tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+
+        .grid tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+    .grid td {
+        vertical-align: top;
+    }
+
+    .grid .center {
+        text-align: center;
+    }
+
+    .grid .right {
+        text-align: right;
+    }
+
+    .grid .bold {
+        font-weight: bold;
+    }
+
+    .grid .date {
+        white-space: nowrap;
+    }
