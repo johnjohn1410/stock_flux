@@ -6,7 +6,7 @@ A aplicação consome uma API RESTful desenvolvida em Flask para manipular e exi
 
 ## API
 
-    git clone https://github.com/Goncalvs98/stock_flux_api.git
+[https://github.com/Goncalvs98/stock_flux_api.git](https://github.com/Goncalvs98/stock_flux_api.git)
 
 ## Funcionalidades
 
