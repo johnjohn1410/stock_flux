@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=100vw, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicamentos</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/styles_grid.css">
@@ -14,8 +14,7 @@
         <div class="filtro">
             <input type="text" id="search" placeholder="Pesquisar produtos" onkeyup="searchProduct()">
         </div>
-
-        <table class="grid">
+        <table class="grid" id="medicamentos-table">
             <thead>
                 <tr>
                     <th>Categoria</th>
@@ -27,73 +26,42 @@
                     <th>Status</th>
                 </tr>
             </thead>
-            <tbody id="medicamentoTableBody">
-                <!-- As linhas serão inseridas aqui pelo JavaScript -->
+            <tbody id="medicamentos-tbody">
+                <!-- Dados serão inseridos aqui -->
             </tbody>
         </table>
     </div>
 
     <script>
-        // Função para buscar as credenciais do arquivo JSON
-        async function loadCredentials() {
-            const response = await fetch('./credentials.json');
-            const credentials = await response.json();
-            return credentials;
-        }
-
-        // Função para buscar dados da API e popular a tabela
         async function fetchMedicamentos() {
-            debugger;
-            const credentials = await loadCredentials();
-
             try {
-                const response = await fetch(`http://127.0.0.1:5000/get_medicamentos`);
-                const data = await response.json();
+                const response = await fetch('http://localhost:5000/api/medicamentos'); // URL completa da API
+                const medicamentos = await response.json();
 
-                const tableBody = document.getElementById('medicamentoTableBody');
-                tableBody.innerHTML = ''; // Limpa o corpo da tabela antes de adicionar novas linhas
+                const tbody = document.getElementById('medicamentos-tbody');
+                tbody.innerHTML = ''; // Limpa o tbody
 
-                data.forEach(item => {
+                medicamentos.forEach(medicamento => {
                     const row = document.createElement('tr');
 
-                    row.innerHTML = `
-                        <td>${item.Categoria}</td>
-                        <td>${item.Motivo}</td>
-                        <td>${item.Nome}</td>
-                        <td>${item.Código}</td>
-                        <td>${item['Quantidade Minima']}</td>
-                        <td>${item.Localização}</td>
-                        <td>${item.Status}</td>
-                    `;
+                    Object.values(medicamento).forEach(value => {
+                        const cell = document.createElement('td');
+                        cell.textContent = value;
+                        row.appendChild(cell);
+                    });
 
-                    tableBody.appendChild(row);
+                    tbody.appendChild(row);
                 });
             } catch (error) {
                 console.error('Erro ao buscar medicamentos:', error);
             }
         }
 
-        // Função de pesquisa
-        function searchProduct() {
-            const filter = document.getElementById('search').value.toLowerCase();
-            const rows = document.querySelectorAll('#medicamentoTableBody tr');
+// Chama a função ao carregar a página
+window.onload = fetchMedicamentos;
 
-            rows.forEach(row => {
-                const cells = row.getElementsByTagName('td');
-                let found = false;
 
-                for (let i = 0; i < cells.length; i++) {
-                    if (cells[i].textContent.toLowerCase().includes(filter)) {
-                        found = true;
-                        break;
-                    }
-                }
-
-                row.style.display = found ? '' : 'none';
-            });
-        }
-
-        // Buscar medicamentos quando a página carregar
+        // Chama a função ao carregar a página
         window.onload = fetchMedicamentos;
     </script>
 </body>
