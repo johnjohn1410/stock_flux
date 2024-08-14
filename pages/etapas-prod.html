@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etapas na Produção</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles_grid.css">
+</head>
+<body>
+    <div class="container">
+        <h1>StockFlux</h1>
+        <h2>Atrasos</h2>
+        <div class="filtro">
+            <input type="text" id="search" placeholder="Pesquisar Etapas da Produção" onkeyup="searchProduct()">
+        </div>
+        <table class="grid" id="etapas-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Prazo Estimado</th>
+                </tr>
+            </thead>
+            <tbody id="etapas-tbody">
+                <!-- Dados serão inseridos aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function fetchEtapas() {
+            try {
+                const response = await fetch('http://localhost:5000/api/etapas_producao'); // URL completa da API
+                const etapas = await response.json();
+
+                const tbody = document.getElementById('etapas-tbody');
+                tbody.innerHTML = ''; // Limpa o tbody
+
+                etapas.forEach(etapa => {
+                    const row = document.createElement('tr');
+
+                    Object.values(etapa).forEach(value => {
+                        const cell = document.createElement('td');
+                        cell.textContent = value;
+                        row.appendChild(cell);
+                    });
+
+                    tbody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar relatório de Etapas:', error);
+            }
+        }
+
+// Chama a função ao carregar a página
+window.onload = fetchEtapas;
+
+
+        // Chama a função ao carregar a página
+        window.onload = fetchEtapas;
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status da Produção</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles_grid.css">
+</head>
+<body>
+    <div class="container">
+        <h1>StockFlux</h1>
+        <h2>Status da Produção</h2>
+        <div class="filtro">
+            <input type="text" id="search" placeholder="Pesquisar sobre a produção" onkeyup="searchProduct()">
+        </div>
+        <table class="grid" id="produção-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Medicamento</th>
+                    <th>Etapa</th>
+                    <th>Data Início</th>
+                    <th>Data fim prevista</th>
+                    <th>Data fim Real</th>
+                </tr>
+            </thead>
+            <tbody id="producao-tbody">
+                <!-- Dados serão inseridos aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function fetchProducao() {
+            try {
+                const response = await fetch('http://localhost:5000/api/producao'); // URL completa da API
+                const prod = await response.json();
+
+                const tbody = document.getElementById('producao-tbody');
+                tbody.innerHTML = ''; // Limpa o tbody
+
+                prod.forEach(prod => {
+                    const row = document.createElement('tr');
+
+                    Object.values(prod).forEach(value => {
+                        const cell = document.createElement('td');
+                        cell.textContent = value;
+                        row.appendChild(cell);
+                    });
+
+                    tbody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar relatório de atrasos:', error);
+            }
+        }
+
+// Chama a função ao carregar a página
+window.onload = fetchProducao;
+
+
+        // Chama a função ao carregar a página
+        window.onload = fetchProducao;
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivos</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles_grid.css">
+</head>
+<body>
+    <div class="container">
+        <h1>StockFlux</h1>
+        <h2>Motivos</h2>
+        <div class="filtro">
+            <input type="text" id="search" placeholder="Pesquisar motivos" onkeyup="searchProduct()">
+        </div>
+        <table class="grid" id="motivos-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                </tr> 
+            </thead>
+            <tbody id="motivos-tbody">
+                <!-- Dados serão inseridos aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function fetchMotivos() {
+            try {
+                const response = await fetch('http://localhost:5000/api/motivos'); // URL completa da API
+                const motivo = await response.json();
+
+                const tbody = document.getElementById('motivos-tbody');
+                tbody.innerHTML = ''; // Limpa o tbody
+
+                motivo.forEach(motivo => {
+                    const row = document.createElement('tr');
+
+                    Object.values(motivo).forEach(value => {
+                        const cell = document.createElement('td');
+                        cell.textContent = value;
+                        row.appendChild(cell);
+                    });
+
+                    tbody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar relatório de atrasos:', error);
+            }
+        }
+
+// Chama a função ao carregar a página
+window.onload = fetchMotivos;
+
+
+        // Chama a função ao carregar a página
+        window.onload = fetchMotivos;
+    </script>
+</body>
+</html>
