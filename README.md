@@ -12,17 +12,17 @@ A aplicação consome uma API RESTful desenvolvida em Flask para manipular e exi
 
 ## Front-End para criação
     para alterar o banco de dados que a API vai puxar, só mudar o link da linha 38
-- []Atrasos de Produção
-- []Cargos
-- []Categorias
-- []Departamentos
-- []Entradas Previstas
-- []Estoque
-- []Etapas de Produção
-- []Fornecedores
-- []Materiais
-- []Medicamentos
-- []Motivos
-- []Produção
-- []Status
+- [ ]Atrasos de Produção
+- [ ]Cargos
+- [ ]Categorias
+- [ ]Departamentos
+- [ ]Entradas Previstas
+- [ ]Estoque
+- [ ]Etapas de Produção
+- [ ]Fornecedores
+- [ ]Materiais
+- [ ]Medicamentos
+- [ ]Motivos
+- [ ]Produção
+- [ ]Status
 
