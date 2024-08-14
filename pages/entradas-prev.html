@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entradas Previstas</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles_grid.css">
+</head>
+<body>
+    <div class="container">
+        <h1>StockFlux</h1>
+        <h2>Entradas Previstas</h2>
+        <div class="filtro">
+            <input type="text" id="search" placeholder="Pesquisar entradas previstas" onkeyup="searchProduct()">
+        </div>
+        <table class="grid" id="ent-prev-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Material</th>
+                    <th>Medicamento</th>
+                    <th>Quantidade</th>
+                    <th>Data Prevista</th>
+                </tr>
+            </thead>
+            <tbody id="ent-prev-tbody">
+                <!-- Dados serão inseridos aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function fetchEntradas() {
+            try {
+                const response = await fetch('http://localhost:5000/api/entradas_previstas'); // URL completa da API
+                const entradas = await response.json();
+
+                const tbody = document.getElementById('ent-prev-tbody');
+                tbody.innerHTML = ''; // Limpa o tbody
+
+                entradas.forEach(entrada => {
+                    const row = document.createElement('tr');
+
+                    Object.values(entrada).forEach(value => {
+                        const cell = document.createElement('td');
+                        cell.textContent = value;
+                        row.appendChild(cell);
+                    });
+
+                    tbody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar relatório de entradas:', error);
+            }
+        }
+
+// Chama a função ao carregar a página
+window.onload = fetchEntradas;
+
+
+        // Chama a função ao carregar a página
+        window.onload = fetchEntradas;
+    </script>
+</body>
+</html>
