@@ -3,6 +3,31 @@ function logout() {
     alert("Logout realizado com sucesso!");
 }
 
+async function populateGrid(table, params, tbody) {
+    let url = `http://localhost:5000/api/${table}?`;
+    url += params;
+
+    try {
+        const response = await fetch(url);
+        const itens = await response.json();
+        tbody.innerHTML = ''; // Limpa o tbody
+
+        itens.forEach(item => {
+            const row = document.createElement('tr');
+
+            Object.values(item).forEach(value => {
+                const cell = document.createElement('td');
+                cell.textContent = value;
+                row.appendChild(cell);
+            });
+
+            tbody.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Erro ao buscar os dados:', error);
+    }
+}
+
 // Exemplo de gráfico usando Chart.js
 var ctx1 = document.getElementById('chart1').getContext('2d');
 var chart1 = new Chart(ctx1, {

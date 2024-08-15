@@ -52,48 +52,23 @@
         </table>
     </div>
 
+    <script src="../assets/js/main.js"></script>
+
     <script>
-        async function fetchMedicamentos() {
-            const categoria = document.getElementById('categoria').value;
-            const motivo = document.getElementById('motivo').value;
-            const status = document.getElementById('status').value;
-            const medicamento_nome = document.getElementById('medicamento_nome').value;
+        const categoria = document.getElementById('categoria').value;
+        const motivo = document.getElementById('motivo').value;
+        const status = document.getElementById('status').value;
+        const medicamento_nome = document.getElementById('medicamento_nome').value;
+        const tbody = document.getElementById('medicamentos-tbody');
+        const params = new URLSearchParams();
 
-            let url = 'http://localhost:5000/api/medicamentos?';
-            const params = new URLSearchParams();
+        if (categoria) params.append('categoria_id', categoria);
+        if (motivo) params.append('motivo_id', motivo);
+        if (status) params.append('status_id', status);
+        if (medicamento_nome) params.append('medicamento_nome', medicamento_nome);
 
-            if (categoria) params.append('categoria_id', categoria);
-            if (motivo) params.append('motivo_id', motivo);
-            if (status) params.append('status_id', status);
-            if (medicamento_nome) params.append('medicamento_nome', medicamento_nome);
-
-            url += params.toString();
-
-            try {
-                const response = await fetch(url);
-                const medicamentos = await response.json();
-
-                const tbody = document.getElementById('medicamentos-tbody');
-                tbody.innerHTML = ''; // Limpa o tbody
-
-                medicamentos.forEach(medicamento => {
-                    const row = document.createElement('tr');
-
-                    Object.values(medicamento).forEach(value => {
-                        const cell = document.createElement('td');
-                        cell.textContent = value;
-                        row.appendChild(cell);
-                    });
-
-                    tbody.appendChild(row);
-                });
-            } catch (error) {
-                console.error('Erro ao buscar medicamentos:', error);
-            }
-        }
-        
         // Chama a função ao carregar a página
-        window.onload = fetchMedicamentos;
+        window.onload = populateGrid('medicamentos', params.toString(), tbody);
     </script>
 </body>
 </html>
