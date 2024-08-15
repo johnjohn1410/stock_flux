@@ -14,7 +14,7 @@
         <div class="filtro">
             <input type="text" id="search" placeholder="Pesquisar sobre a produção" onkeyup="searchProduct()">
         </div>
-        <table class="grid" id="produção-table">
+        <table class="grid" id="producao-table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -52,7 +52,7 @@
                     tbody.appendChild(row);
                 });
             } catch (error) {
-                console.error('Erro ao buscar relatório de atrasos:', error);
+                console.error('Erro ao buscar relatório de produção:', error);
             }
         }
 

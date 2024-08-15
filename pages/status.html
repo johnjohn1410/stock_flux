@@ -3,46 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atrasos na Produção</title>
+    <title>Status</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/styles_grid.css">
 </head>
 <body>
     <div class="container">
         <h1>StockFlux</h1>
-        <h2>Atrasos</h2>
+        <h2>Status</h2>
         <div class="filtro">
-            <input type="text" id="search" placeholder="Pesquisar atrasos" onkeyup="searchProduct()">
+            <input type="text" id="search" placeholder="Pesquisar status" onkeyup="searchProduct()">
         </div>
-        <table class="grid" id="atrasos-table">
+        <table class="grid" id="status-table">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Medicamento</th>
-                    <th>Etapa</th>
-                    <th>Dias de Atraso</th>
+                    <th>Descrição</th>
                     <th>Motivo</th>
                 </tr>
             </thead>
-            <tbody id="atrasos-tbody">
+            <tbody id="status-tbody">
                 <!-- Dados serão inseridos aqui -->
             </tbody>
         </table>
     </div>
 
     <script>
-        async function fetchAtrasos() {
+        async function fetchStatus() {
             try {
-                const response = await fetch('http://localhost:5000/api/atrasos_produção'); // URL completa da API
-                const atraso = await response.json();
+                const response = await fetch('http://localhost:5000/api/status'); // URL completa da API
+                const status = await response.json();
 
-                const tbody = document.getElementById('atrasos-tbody');
+                const tbody = document.getElementById('status-tbody');
                 tbody.innerHTML = ''; // Limpa o tbody
 
-                atraso.forEach(atraso => {
+                status.forEach(status => {
                     const row = document.createElement('tr');
 
-                    Object.values(atraso).forEach(value => {
+                    Object.values(status).forEach(value => {
                         const cell = document.createElement('td');
                         cell.textContent = value;
                         row.appendChild(cell);
@@ -51,16 +49,16 @@
                     tbody.appendChild(row);
                 });
             } catch (error) {
-                console.error('Erro ao buscar relatório de atrasos:', error);
+                console.error('Erro ao buscar relatório de status:', error);
             }
         }
 
 // Chama a função ao carregar a página
-window.onload = fetchAtrasos;
+window.onload = fetchStatus;
 
 
         // Chama a função ao carregar a página
-        window.onload = fetchAtrasos;
+        window.onload = fetchStatus;
     </script>
 </body>
 </html>
