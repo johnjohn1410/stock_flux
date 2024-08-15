@@ -11,9 +11,29 @@
     <div class="container">
         <h1>StockFlux</h1>
         <h2>Medicamentos</h2>
-        <div class="filtro">
-            <input type="text" id="search" placeholder="Pesquisar produtos" onkeyup="searchProduct()">
+                
+        <div class="filtros">
+            <div class="filtro">
+                <label for="categoria">Categoria:</label>
+                <input type="text" id="categoria" placeholder="Categoria">
+            </div>
+            <div class="filtro">
+                <label for="motivo">Motivo:</label>
+                <input type="text" id="motivo" placeholder="Motivo">
+            </div>
+            <div class="filtro">
+                <label for="status">Status:</label>
+                <input type="text" id="status" placeholder="Status">
+            </div>
+            <div class="filtro">
+                <label for="medicamento_nome">Nome do Medicamento:</label>
+                <input type="text" id="medicamento_nome" placeholder="Nome do Medicamento">
+            </div>
+            <div class="filtro">
+                <button onclick="fetchMedicamentos()">Filtrar</button>
+            </div>
         </div>
+
         <table class="grid" id="medicamentos-table">
             <thead>
                 <tr>
@@ -34,8 +54,23 @@
 
     <script>
         async function fetchMedicamentos() {
+            const categoria = document.getElementById('categoria').value;
+            const motivo = document.getElementById('motivo').value;
+            const status = document.getElementById('status').value;
+            const medicamento_nome = document.getElementById('medicamento_nome').value;
+
+            let url = 'http://localhost:5000/api/medicamentos?';
+            const params = new URLSearchParams();
+
+            if (categoria) params.append('categoria_id', categoria);
+            if (motivo) params.append('motivo_id', motivo);
+            if (status) params.append('status_id', status);
+            if (medicamento_nome) params.append('medicamento_nome', medicamento_nome);
+
+            url += params.toString();
+
             try {
-                const response = await fetch('http://localhost:5000/api/medicamentos'); // URL completa da API
+                const response = await fetch(url);
                 const medicamentos = await response.json();
 
                 const tbody = document.getElementById('medicamentos-tbody');
@@ -56,11 +91,7 @@
                 console.error('Erro ao buscar medicamentos:', error);
             }
         }
-
-// Chama a função ao carregar a página
-window.onload = fetchMedicamentos;
-
-
+        
         // Chama a função ao carregar a página
         window.onload = fetchMedicamentos;
     </script>
