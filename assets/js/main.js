@@ -3,6 +3,44 @@ function logout() {
     alert("Logout realizado com sucesso!");
 }
 
+function loadContent(page) {
+    console.log(page);
+    fetch('./assets/js/pageConfigs.json')  // Caminho para o JSON com as configurações
+        .then(response => response.json())
+        .then(configs => {
+            const config = configs[page];
+            if (config) {
+                fetch(page)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('.main-content').innerHTML = data;
+                        runPageSpecificScript(config);
+                    })
+                    .catch(error => console.error('Erro ao carregar a página:', error));
+            } else {
+                console.error('Configuração não encontrada para a página:', page);
+            }
+        })
+        .catch(error => console.error('Erro ao carregar as configurações:', error));
+}
+
+function runPageSpecificScript(config) {
+    const { tableName, filters } = config;
+    const params = new URLSearchParams();
+    const tbody = document.getElementById(`${tableName}-tbody`);
+
+    filters.forEach(filter => {
+        const value = document.getElementById(filter.id)?.value;
+        if (value) {
+            params.append(filter.paramName, value);
+        }
+    });
+
+    if (tbody) {
+        populateGrid(tableName, params.toString(), tbody);
+    }
+}
+
 async function populateGrid(table, params, tbody) {
     let url = `http://localhost:5000/api/${table}?`;
     url += params;

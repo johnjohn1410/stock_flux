@@ -1,0 +1,19 @@
+{
+    "pages/medicamentos.html": {
+        "tableName": "medicamentos",
+        "filters": [
+            { "id": "categoria", "paramName": "categoria_id" },
+            { "id": "motivo", "paramName": "motivo_id" },
+            { "id": "status", "paramName": "status_id" },
+            { "id": "medicamento_nome", "paramName": "medicamento_nome" }
+        ]
+    },
+    "fornecedores.html": {
+        "tableName": "fornecedores",
+        "filters": [
+            { "id": "fornecedor_nome", "paramName": "fornecedor_nome" },
+            { "id": "cidade", "paramName": "cidade_id" },
+            { "id": "estado", "paramName": "estado_id" }
+        ]
+    }
+}

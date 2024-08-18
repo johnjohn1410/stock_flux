@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicamentos</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/styles_grid.css">
 </head>
 <body>
     <div class="container">
@@ -51,24 +49,5 @@
             </tbody>
         </table>
     </div>
-
-    <script src="../assets/js/main.js"></script>
-
-    <script>
-        const categoria = document.getElementById('categoria').value;
-        const motivo = document.getElementById('motivo').value;
-        const status = document.getElementById('status').value;
-        const medicamento_nome = document.getElementById('medicamento_nome').value;
-        const tbody = document.getElementById('medicamentos-tbody');
-        const params = new URLSearchParams();
-
-        if (categoria) params.append('categoria_id', categoria);
-        if (motivo) params.append('motivo_id', motivo);
-        if (status) params.append('status_id', status);
-        if (medicamento_nome) params.append('medicamento_nome', medicamento_nome);
-
-        // Chama a função ao carregar a página
-        window.onload = populateGrid('medicamentos', params.toString(), tbody);
-    </script>
 </body>
 </html>
