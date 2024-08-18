@@ -60,13 +60,19 @@
         -->
     </div>
 
-    <div class="chat-container">
-        <div class="chat-box" id="chat-box">
-            <!-- Mensagens do chat aparecerão aqui -->
+    <div id="chat-container">
+        <div id="chat-header" onclick="toggleChat()">
+            <h3>ChatBot</h3>
+            <span id="toggle-icon">−</span>
         </div>
-        <div class="chat-input">
-            <input type="text" id="user-input" placeholder="Digite sua mensagem...">
-            <button onclick="sendMessage()">Enviar</button>
+        <div id="chat-body">
+            <div id="chat-content">
+                <!-- Aqui vai o conteúdo do chat -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+                <button id="send-button">Enviar</button>
+            </div>
         </div>
     </div>
 
