@@ -4,7 +4,7 @@
     <button class="logout" onclick="logout()">Logout</button>
 </div>
         
-<h2>Categorias de Medicamentos</h2>
+<h2>Entradas Previstas</h2>
 <div class="filtros">
     <div class="filtro">
         <label for="categoria">Categoria</label>
@@ -27,16 +27,19 @@
     </div>
 </div>
 <div class="filtro">
-    <input type="text" id="search" placeholder="Pesquisar categorias de medicamentos" onkeyup="searchProduct()">
+    <input type="text" id="search" placeholder="Pesquisar entradas previstas" onkeyup="searchProduct()">
 </div>
-<table class="grid" id="Categorias">
+<table class="grid" id="ent-prev-table">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Descrição</th>
+            <th>Material</th>
+            <th>Medicamento</th>
+            <th>Quantidade</th>
+            <th>Data Prevista</th>
         </tr>
     </thead>
-    <tbody id="categorias-tbody">
+    <tbody id="ent-prev-tbody">
         <!-- Dados serão inseridos aqui -->
     </tbody>
 </table>

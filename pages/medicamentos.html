@@ -1,53 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicamentos</title>
-</head>
-<body>
-    <div class="container">
-        <h1>StockFlux</h1>
-        <h2>Medicamentos</h2>
-                
-        <div class="filtros">
-            <div class="filtro">
-                <label for="categoria">Categoria:</label>
-                <input type="text" id="categoria" placeholder="Categoria">
-            </div>
-            <div class="filtro">
-                <label for="motivo">Motivo:</label>
-                <input type="text" id="motivo" placeholder="Motivo">
-            </div>
-            <div class="filtro">
-                <label for="status">Status:</label>
-                <input type="text" id="status" placeholder="Status">
-            </div>
-            <div class="filtro">
-                <label for="medicamento_nome">Nome do Medicamento:</label>
-                <input type="text" id="medicamento_nome" placeholder="Nome do Medicamento">
-            </div>
-            <div class="filtro">
-                <button onclick="fetchMedicamentos()">Filtrar</button>
-            </div>
-        </div>
-
-        <table class="grid" id="medicamentos-table">
-            <thead>
-                <tr>
-                    <th>Categoria</th>
-                    <th>Motivo</th>
-                    <th>Nome</th>
-                    <th>Código</th>
-                    <th>Quantidade</th>
-                    <th>Localização</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="medicamentos-tbody">
-                <!-- Dados serão inseridos aqui -->
-            </tbody>
-        </table>
+<div class="header">
+    <img src="./assets/images/logo.png" alt="Logo">
+    <span>Bem-vindo, Usuário!</span>
+    <button class="logout" onclick="logout()">Logout</button>
+</div>
+<h2>Medicamentos</h2>
+        
+<div class="filtros">
+    <div class="filtro">
+        <label for="categoria">Categoria</label>
+        <input type="text" id="categoria" placeholder="Categoria">
     </div>
-</body>
-</html>
+    <div class="filtro">
+        <label for="motivo">Motivo</label>
+        <input type="text" id="motivo" placeholder="Motivo">
+    </div>
+    <div class="filtro">
+        <label for="status">Status</label>
+        <input type="text" id="status" placeholder="Status">
+    </div>
+    <div class="filtro">
+        <label for="medicamento_nome">Nome do Medicamento</label>
+        <input type="text" id="medicamento_nome" placeholder="Nome do Medicamento">
+    </div>
+    <div class="filtro">
+        <button onclick="fetchMedicamentos()">Filtrar</button>
+    </div>
+</div>
+
+<table class="grid" id="medicamentos-table">
+    <thead>
+        <tr>
+            <th>Categoria</th>
+            <th>Motivo</th>
+            <th>Nome</th>
+            <th>Código</th>
+            <th>Quantidade</th>
+            <th>Localização</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="medicamentos-tbody">
+        <!-- Dados serão inseridos aqui -->
+    </tbody>
+</table>
+

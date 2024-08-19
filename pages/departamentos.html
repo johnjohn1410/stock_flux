@@ -1,63 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Departamentos</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/styles_grid.css">
-</head>
-<body>
-    <div class="container">
-        <h1>StockFlux</h1>
-        <h2>Departamentos</h2>
-        <div class="filtro">
-            <input type="text" id="search" placeholder="Pesquisar departamentos" onkeyup="searchProduct()">
-        </div>
-        <table class="grid" id="departamentos-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Descrição</th>
-                </tr>
-            </thead>
-            <tbody id="departamentos-tbody">
-                <!-- Dados serão inseridos aqui -->
-            </tbody>
-        </table>
+<div class="header">
+    <img src="./assets/images/logo.png" alt="Logo">
+    <span>Bem-vindo, Usuário!</span>
+    <button class="logout" onclick="logout()">Logout</button>
+</div>
+        
+<h2>Departamentos</h2>
+<div class="filtros">
+    <div class="filtro">
+        <label for="categoria">Categoria</label>
+        <input type="text" id="categoria" placeholder="Categoria">
     </div>
-
-    <script>
-        async function fetchDepartamentos() {
-            try {
-                const response = await fetch('http://localhost:5000/api/departamentos'); // URL completa da API
-                const departamentos = await response.json();
-
-                const tbody = document.getElementById('departamentos-tbody');
-                tbody.innerHTML = ''; // Limpa o tbody
-
-                departamentos.forEach(departamentos => {
-                    const row = document.createElement('tr');
-
-                    Object.values(departamentos).forEach(value => {
-                        const cell = document.createElement('td');
-                        cell.textContent = value;
-                        row.appendChild(cell);
-                    });
-
-                    tbody.appendChild(row);
-                });
-            } catch (error) {
-                console.error('Erro ao buscar departamentos:', error);
-            }
-        }
-
-// Chama a função ao carregar a página
-window.onload = fetchDepartamentos;
-
-
-        // Chama a função ao carregar a página
-        window.onload = fetchDepartamentos;
-    </script>
-</body>
-</html>
+    <div class="filtro">
+        <label for="motivo">Motivo</label>
+        <input type="text" id="motivo" placeholder="Motivo">
+    </div>
+    <div class="filtro">
+        <label for="status">Status</label>
+        <input type="text" id="status" placeholder="Status">
+    </div>
+    <div class="filtro">
+        <label for="medicamento_nome">Nome do Medicamento</label>
+        <input type="text" id="medicamento_nome" placeholder="Nome do Medicamento">
+    </div>
+    <div class="filtro">
+        <button onclick="fetchMedicamentos()">Filtrar</button>
+    </div>
+</div>
+<div class="filtro">
+    <input type="text" id="search" placeholder="Pesquisar departamentos" onkeyup="searchProduct()">
+</div>
+<table class="grid" id="departamentos-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody id="departamentos-tbody">
+        <!-- Dados serão inseridos aqui -->
+    </tbody>
+</table>

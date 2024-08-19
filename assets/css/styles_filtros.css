@@ -1,0 +1,40 @@
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: flex-end;
+}
+
+.filtro {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.filtro label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filtro input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+.filtro button {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--cor-prim);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filtro button:hover {
+    background-color: #0056b3;
+}
