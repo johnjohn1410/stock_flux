@@ -29,7 +29,10 @@ function appendMessage(sender, message) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('chat-message', sender);
     messageElement.textContent = message;
-    chatBox.appendChild(messageElement);
+    const messageRow = document.createElement('div');
+    messageRow.appendChild(messageElement);
+    messageRow.classList.add('row', sender);
+    chatBox.appendChild(messageRow);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
@@ -51,5 +54,18 @@ document.getElementById("send-button").addEventListener("click", function() {
     var userInput = document.getElementById("chat-input");
     sendMessage(userInput);
     document.getElementById("chat-input").value = ""; // Limpar o campo de entrada
+});
+
+
+const userInput = document.getElementById("chat-input");
+document.getElementById("send-button").addEventListener("click", function() {
+    sendMessage(userInput);
+    userInput.value = "";
+});
+userInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        sendMessage(userInput);
+        userInput.value = "";
+    }
 });
 
