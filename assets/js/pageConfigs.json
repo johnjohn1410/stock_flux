@@ -11,9 +11,7 @@
     "pages/fornecedores.html": {
         "tableName": "fornecedores",
         "filters": [
-            { "id": "fornecedor_nome", "paramName": "fornecedor_nome" },
-            { "id": "cidade", "paramName": "cidade_id" },
-            { "id": "estado", "paramName": "estado_id" }
+            { "id": "fornecedor_id", "paramName": "fornecedor_id" }
         ]
     },
     "pages/status.html": {

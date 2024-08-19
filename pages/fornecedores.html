@@ -11,24 +11,10 @@
         <input type="text" id="fornecedor_nome" placeholder="Fornecedor">
     </div>
     <div class="filtro">
-        <label for="motivo">Motivo</label>
-        <input type="text" id="motivo" placeholder="Motivo">
-    </div>
-    <div class="filtro">
-        <label for="status">Status</label>
-        <input type="text" id="status" placeholder="Status">
-    </div>
-    <div class="filtro">
-        <label for="medicamento_nome">Nome do Medicamento</label>
-        <input type="text" id="medicamento_nome" placeholder="Nome do Medicamento">
-    </div>
-    <div class="filtro">
         <button onclick="fetchMedicamentos()">Filtrar</button>
     </div>
 </div>
-<div class="filtro">
-    <input type="text" id="search" placeholder="Pesquisar fornecedores" onkeyup="searchProduct()">
-</div>
+
 <table class="grid" id="fornecedores-table">
     <thead>
         <tr>
