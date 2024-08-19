@@ -39,6 +39,29 @@ body {
     height: 200px;
     overflow-y: auto;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.chat-message.user{
+    background-color: aquamarine;
+    width: fit-content;
+    padding: 5px;
+    padding-right: 7px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.chat-message.bot{
+    display: flex;
+    justify-items:end;
+    background-color: chartreuse;
+    width: fit-content;
+    padding: 5px;
+    padding-left: 7px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 #chat-input {
