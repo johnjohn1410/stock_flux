@@ -4,7 +4,7 @@
     <button class="logout" onclick="logout()">Logout</button>
 </div>
         
-<h2>Atrasos</h2>
+<h2>Etapas</h2>
 <div class="filtros">
     <div class="filtro">
         <label for="categoria">Categoria</label>
@@ -23,7 +23,7 @@
         <input type="text" id="medicamento_nome" placeholder="Nome do Medicamento">
     </div>
     <div class="filtro">
-        <button onclick="fetchMedicamentos()">Filtrar</button>
+        <button onclick="search('pages/etapas_producao.html')">Filtrar</button>
     </div>
 </div>
 <div class="filtro">
@@ -34,7 +34,7 @@
         <tr>
             <th>ID</th>
             <th>Descrição</th>
-            <th>Prazo Estimado</th>
+            <th>Prazo Estimado (Dias)</th>
         </tr>
     </thead>
     <tbody id="etapas_producao-tbody">

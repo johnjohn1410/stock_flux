@@ -23,6 +23,30 @@ function loadContent(page) {
         .catch(error => console.error('Erro ao carregar as configurações:', error));
 }
 
+async function search(page) {
+    try {
+        const response = await fetch('./assets/js/pageConfigs.json');  // Caminho para o JSON com as configurações
+        const configs = await response.json();
+        
+        const config = configs[page];
+        if (config) {
+            const pageResponse = await fetch(page);
+            const data = await pageResponse.text();
+            
+            const filtros = config.filters.map(filtro => {
+                return `${filtro.paramName}=${document.getElementById(filtro.id).value}`;
+            }).join('&');
+            
+            const tableBody = document.getElementById(`${config.tableName}-tbody`);
+            await populateGrid(config.tableName, filtros, tableBody);  // Alterado a ordem dos parâmetros
+        } else {
+            console.error('Configuração não encontrada para a página:', page);
+        }
+    } catch (error) {
+        console.error('Erro ao carregar as configurações ou a página:', error);
+    }
+}
+
 function runPageSpecificScript(config) {
     const { tableName, filters } = config;
     const params = new URLSearchParams();
@@ -41,8 +65,7 @@ function runPageSpecificScript(config) {
 }
 
 async function populateGrid(table, params, tbody) {
-    let url = `http://localhost:5000/api/${table}?`;
-    url += params;
+    let url = `http://localhost:5000/api/${table}?${params}`;
 
     try {
         const response = await fetch(url);
