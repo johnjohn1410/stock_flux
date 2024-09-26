@@ -26,6 +26,7 @@ body {
     width: 200px;
     background-color: var(--cor-quin_escur);
     color: var(--cor-prim_claro);
+    height: 100vh;
 }
 .sidebar h2{
     padding-left: 10px;

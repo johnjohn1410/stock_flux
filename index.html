@@ -12,7 +12,7 @@
 <body>
     <div class="sidebar">
         <h2>StockFlux</h2>
-        <a href="#" onclick="loadContent('pages/suspencoes.html')">Suspensão</a>
+        <!-- <a href="#" onclick="loadContent('pages/suspencoes.html')">Suspensão</a> -->
         <a href="#" onclick="loadContent('pages/medicamentos.html')">Medicamentos</a>
         <a href="#" onclick="loadContent('pages/atrasos_producao.html')">Atrasos</a>
         <a href="#" onclick="loadContent('pages/cargos.html')">Cargos</a>
@@ -26,40 +26,34 @@
         <a href="#" onclick="loadContent('pages/motivos.html')">Motivos</a>
         <a href="#" onclick="loadContent('pages/producao.html')">Produção</a>
         <a href="#" onclick="loadContent('pages/status.html')">Status</a>
-        <a href="#" onclick="loadContent('insights.html')">Insights</a>
-        <a href="#" onclick="loadContent('avisos.html')">Avisos</a>
-        <a href="#" onclick="loadContent('controle.html')">Controle</a>
+        <!-- <a href="#" onclick="loadContent('insights.html')">Insights</a> -->
+        <!-- <a href="#" onclick="loadContent('avisos.html')">Avisos</a> -->
+        <!-- <a href="#" onclick="loadContent('controle.html')">Controle</a> -->
     </div>
 
     <div class="main-content">
         <div class="header">
-            <img src="./assets/images/logo.png" alt="Logo">
+            <a href="index.html">
+                <img src="./assets/images/logo.png" alt="Logo">
+            </a>
             <span>Bem-vindo, Usuário!</span>
             <button class="logout" onclick="logout()">Logout</button>
         </div>
-        <!-- 
         <div class="panel">
             <div class="charts">
                 <div class="chart">
-                    <h4>Gráfico 1</h4>
+                    <h4>Metas</h4>
                     <canvas id="chart1"></canvas>
                 </div>
                 <div class="chart">
-                    <h4>Gráfico 2</h4>
+                    <h4>Atrasos da produção</h4>
                     <canvas id="chart2"></canvas>
                 </div>
             </div>
         </div>
-        <div class="panel">
-            <h3>Atalhos Rápidos</h3>
-            <p>Use os atalhos abaixo para ações rápidas:</p>
-            <button class="button" onclick="location.href='suspencoes.html'">Ver Suspensões</button>
-            <button class="button" onclick="location.href='insights.html'">Ver Insights</button>
-            <button class="button" onclick="location.href='avisos.html'">Ver Avisos</button>
-            <button class="button" onclick="location.href='controle.html'">Ver Controle</button>
-        </div> 
-        -->
     </div>
+    
+
 
     <div id="chat-container">
         <div id="chat-header" onclick="toggleChat()">

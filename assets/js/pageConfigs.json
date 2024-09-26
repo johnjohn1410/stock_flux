@@ -95,5 +95,14 @@
             { "id": "quantidade", "paramName": "quantidade" },
             { "id": "data_prevista", "paramName": "data_prevista" }
         ]
+    },
+    "pages/dashboard.html": {
+        "tableName": "entradas_previstas",
+        "filters": [
+            { "id": "material", "paramName": "material_id" },
+            { "id": "medicamento", "paramName": "medicamento_id" },
+            { "id": "quantidade", "paramName": "quantidade" },
+            { "id": "data_prevista", "paramName": "data_prevista" }
+        ]
     }
 }
