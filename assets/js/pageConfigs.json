@@ -1,108 +1,20 @@
 {
-    "pages/medicamentos.html": {
-        "tableName": "medicamentos",
-        "filters": [
-            { "id": "categoria", "paramName": "categoria_id" },
-            { "id": "motivo", "paramName": "motivo_id" },
-            { "id": "status", "paramName": "status_id" },
-            { "id": "medicamento_nome", "paramName": "medicamento_nome" }
-        ]
+    "pages/vw_regulatorio.html": {
+        "tableName": "vw_regulatorio"
     },
-    "pages/fornecedores.html": {
-        "tableName": "fornecedores",
-        "filters": [
-            { "id": "fornecedor_id", "paramName": "fornecedor_id" }
-        ]
+    "pages/vw_sop.html": {
+        "tableName": "vw_sop"
     },
-    "pages/status.html": {
-        "tableName": "status",
-        "filters": [
-            { "id": "status_descricao", "paramName": "status_descricao" },
-            { "id": "motivo", "paramName": "motivo" }
-        ]
+    "pages/base_cliente.html": {
+        "tableName": "base_cliente"
     },
-    "pages/materiais.html": {
-        "tableName": "materiais",
-        "filters": [
-            { "id": "material_descricao", "paramName": "material_descricao" },
-            { "id": "fornecedor", "paramName": "fornecedor_id" }
-        ]
+    "pages/base_id.html": {
+        "tableName": "base_id"
     },
-    "pages/categorias.html": {
-        "tableName": "categorias",
-        "filters": [
-            { "id": "categoria_descricao", "paramName": "categoria_descricao" }
-        ]
+    "pages/previsao.html": {
+        "tableName": "previsao"
     },
-    "pages/motivos.html": {
-        "tableName": "motivos",
-        "filters": [
-            { "id": "motivo_descricao", "paramName": "motivo_descricao" }
-        ]
-    },
-    "pages/cargos.html": {
-        "tableName": "cargos",
-        "filters": [
-            { "id": "cargo_descricao", "paramName": "cargo_descricao" }
-        ]
-    },
-    "pages/departamentos.html": {
-        "tableName": "departamentos",
-        "filters": [
-            { "id": "departamento_descricao", "paramName": "departamento_descricao" }
-        ]
-    },
-    "pages/estoque.html": {
-        "tableName": "estoque",
-        "filters": [
-            { "id": "medicamento", "paramName": "medicamento_id" },
-            { "id": "responsavel", "paramName": "responsavel_id" },
-            { "id": "tipo_movimentacao", "paramName": "tipo_movimentacao_id" },
-            { "id": "data", "paramName": "data" }
-        ]
-    },
-    "pages/etapas_producao.html": {
-        "tableName": "etapas_producao",
-        "filters": [
-            { "id": "etapa_descricao", "paramName": "etapa_descricao" },
-            { "id": "prazo_estimado", "paramName": "prazo_estimado" }
-        ]
-    },
-    "pages/producao.html": {
-        "tableName": "producao",
-        "filters": [
-            { "id": "medicamento", "paramName": "medicamento_id" },
-            { "id": "etapa", "paramName": "etapa_id" },
-            { "id": "data_inicio", "paramName": "data_inicio" },
-            { "id": "data_fim_prevista", "paramName": "data_fim_prevista" },
-            { "id": "data_fim_real", "paramName": "data_fim_real" }
-        ]
-    },
-    "pages/atrasos_producao.html": {
-        "tableName": "atrasos_producao",
-        "filters": [
-            { "id": "producao", "paramName": "producao_id" },
-            { "id": "etapa", "paramName": "etapa_id" },
-            { "id": "dias_atraso", "paramName": "dias_atraso" },
-            { "id": "motivo", "paramName": "motivo" }
-        ]
-    },
-    "pages/entradas_previstas.html": {
-        "tableName": "entradas_previstas",
-        "filters": [
-            { "id": "material", "paramName": "material_id" },
-            { "id": "medicamento", "paramName": "medicamento_id" },
-            { "id": "quantidade", "paramName": "quantidade" },
-            { "id": "data_prevista", "paramName": "data_prevista" }
-        ]
-    },
-    "pages/dashboard.html": {
-        "tableName": "entradas_previstas",
-        "filters": [
-            { "id": "material", "paramName": "material_id" },
-            { "id": "medicamento", "paramName": "medicamento_id" },
-            { "id": "quantidade", "paramName": "quantidade" },
-            { "id": "data_prevista", "paramName": "data_prevista" }
-        ]
+    "pages/desc_medicamentos.html": {
+        "tableName": "desc_medicamentos"
     }
 }

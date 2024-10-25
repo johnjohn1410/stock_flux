@@ -1,0 +1,63 @@
+<div class="main-content">
+    <div class="header">
+        <a href="index.html"></a>
+    </div>
+    <nav class="navbar fixed-top bg-primary">
+        <div class="container">
+            <a href="#" class="navbar-brand mx-auto">
+                <img src="./assets/images/logo.png" alt="Logo" width="270px" height="50px">
+            </a>
+            <button class="navbar-toggler mr-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navegação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 ">
+                    <li class="nav-item" id="impar">
+                        <a href="#" onclick="loadContent('pages/vw_regulatorio.html')">VW Regulatório</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" onclick="loadContent('pages/vw_sop.html')">VW SOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" onclick="loadContent('pages/base_cliente.html')">Base Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" onclick="loadContent('pages/base_id.html')">Base Id</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            </div>
+    </nav>
+            
+    <h2>Base Cliente</h2>
+
+    <table class="grid" id="base_cliente-table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>gmid</th>
+                <th>sit</th>
+                <th>bu_local</th>
+                <th>family</th>
+                <th>apresentacao</th>
+                <th>stock_floor_m1_cd</th>
+                <th>stock_floor_m1_pos</th>
+                <th>sellout_m1</th>
+                <th>sellout_m2</th>
+                <th>sellout_m3</th>
+                <th>avg_so_3m</th>
+                <th>stock_floor_m1__dcpos</th>
+            </tr>
+        </thead>
+        <tbody id="base_cliente-tbody">
+            <!-- Dados serão inseridos aqui -->
+        </tbody>
+    </table>
+
+</div>

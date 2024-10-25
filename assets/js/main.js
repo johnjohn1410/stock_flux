@@ -1,8 +1,3 @@
-function logout() {
-    // Adicione a lógica de logout aqui
-    alert("Logout realizado com sucesso!");
-}
-
 function loadContent(page) {
     fetch('./assets/js/pageConfigs.json')  // Caminho para o JSON com as configurações
         .then(response => response.json())
@@ -48,24 +43,16 @@ async function search(page) {
 }
 
 function runPageSpecificScript(config) {
-    const { tableName, filters } = config;
-    const params = new URLSearchParams();
+    const { tableName } = config;
     const tbody = document.getElementById(`${tableName}-tbody`);
 
-    filters.forEach(filter => {
-        const value = document.getElementById(filter.id)?.value;
-        if (value) {
-            params.append(filter.paramName, value);
-        }
-    });
-
     if (tbody) {
-        populateGrid(tableName, params.toString(), tbody);
+        populateGrid(tableName, tbody);
     }
 }
 
-async function populateGrid(table, params, tbody) {
-    let url = `http://localhost:5000/api/${table}?${params}`;
+async function populateGrid(table, tbody) {
+    let url = `http://localhost:5000/api/${table}`;
 
     try {
         const response = await fetch(url);

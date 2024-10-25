@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="header">
+        <a href="index.html"></a>
+    </div>
+    <nav class="navbar fixed-top bg-primary">
+        <div class="container">
+            <a href="#" class="navbar-brand mx-auto">
+                <img src="./assets/images/logo.png" alt="Logo" width="270px" height="50px">
+            </a>
+            <button class="navbar-toggler mr-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navegação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 ">
+                    <li class="nav-item" id="impar">
+                        <a href="#" onclick="loadContent('pages/vw_regulatorio.html')">VW Regulatório</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" onclick="loadContent('pages/vw_sop.html')">VW SOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" onclick="loadContent('pages/base_cliente.html')">Base Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" onclick="loadContent('pages/base_id.html')">Base Id</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            </div>
+    </nav>
+        
+    <h2>VW SOP</h2>
+
+    <table class="grid" id="vw_sop-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>GMID</th>
+                <th>SAP</th>
+                <th>Family</th>
+                <th>SAP LMID</th>
+                <th>BU Local</th>
+            </tr>
+        </thead>
+        <tbody id="vw_sop-tbody">
+            <!-- Dados serão inseridos aqui -->
+        </tbody>
+    </table>
+
+</div>
