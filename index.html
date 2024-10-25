@@ -30,7 +30,7 @@
                     </div>
                     <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 ">
-                        <li class="nav-item" id="impar">
+                        <li class="nav-item">
                             <a href="#" onclick="loadContent('pages/vw_regulatorio.html')">VW Regulatório</a>
                         </li>
                         <li class="nav-item">
@@ -41,6 +41,9 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" onclick="loadContent('pages/base_id.html')">Base Id</a>
+                        </li>
+                        <li class="nav-item" id="impar">
+                            <a href="#" onclick="loadContent('index.html')">Dashboard</a>
                         </li>
                     </ul>
                     </div>
@@ -58,9 +61,13 @@
             <div class="panel">
                 <div class="charts">
                     <div class="chart">
-                        <h4>Metas</h4>
-                        <canvas id="chart1"></canvas>
+                        <h4>Base Cliente</h4>
+                        <canvas id="myChart"></canvas>
                     </div>
+                </div>
+                
+                <div class="charts">
+                    
                     <div class="chart">
                         <h4>Atrasos da produção</h4>
                         <canvas id="chart2"></canvas>
@@ -70,8 +77,6 @@
         </div>
     </div>
     
-
-
     <div id="chat-container">
         <div id="chat-header" onclick="toggleChat()">
             <h3>ChatBot</h3>
@@ -87,10 +92,10 @@
         </div>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="./assets/js/main.js"></script>
-<script src="./assets/js/chat.js"></script>
-<script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/js/main.js" defer></script>
+    <script src="./assets/js/chat.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

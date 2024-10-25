@@ -75,28 +75,56 @@ async function populateGrid(table, tbody) {
     }
 }
 
+
 window.onload = function() {
-    var ctx1 = document.getElementById('chart1').getContext('2d');
-    var chart1 = new Chart(ctx1, {
-        type: 'bar',
-        data: {
-            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-            datasets: [{
-                label: 'Amoxicilina',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+    fetch('http://127.0.0.1:5000/api/base_cliente/graficos')
+    .then(response => response.json())
+    .then(data => {
+        // Extrair dados do JSON recebido
+        const labels = ['sellout_m1', 'sellout_m2', 'sellout_m3'];  // Ajuste os meses conforme os dados
+        const datasets = [];
+
+        // Para cada produto, crie um dataset
+        Object.keys(data.dados).forEach(produto => {
+            const sellout = data.dados[produto];
+
+            // Configure o dataset para cada produto
+            datasets.push({
+                label: produto,
+                data: [sellout.sellout_m1, sellout.sellout_m2, sellout.sellout_m3],
+                backgroundColor: getRandomColor(),
+                borderColor: getRandomColor(),
                 borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+            });
+        });
+
+        // Inicialize o gráfico
+        var ctx1 = document.getElementById('myChart').getContext('2d');
+        var chart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: datasets
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
+        });
     });
+
+    // Função para gerar cores aleatórias
+    function getRandomColor() {
+        const r = Math.floor(Math.random() * 255);
+        const g = Math.floor(Math.random() * 255);
+        const b = Math.floor(Math.random() * 255);
+        return `rgba(${r}, ${g}, ${b}, 0.2)`;
+    }
+
+    
 
     var ctx2 = document.getElementById('chart2').getContext('2d');
     var chart2 = new Chart(ctx2, {
@@ -109,7 +137,29 @@ window.onload = function() {
                 backgroundColor: 'rgba(153, 102, 255, 0.2)',
                 borderColor: 'rgba(153, 102, 255, 1)',
                 borderWidth: 1
-            }]
+            },
+            {
+                label: 'Amoxicilina',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            },
+            {
+                label: 'Paracetamol',
+                data: [5, 10, 6, 3, 7, 8],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            },
+            {
+                label: 'Azitromicina',
+                data: [3, 8, 1, 4, 5, 6],
+                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                borderColor: 'rgba(255, 206, 86, 1)',
+                borderWidth: 1
+            }
+        ]
         },
         options: {
             scales: {

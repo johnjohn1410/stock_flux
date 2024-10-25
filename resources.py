@@ -54,6 +54,29 @@ class BaseClienteList(Resource):
         finally:
             session.close()
 
+@api.route('/base_cliente/graficos')
+class BaseClienteList(Resource):
+    def get(self):
+        session = get_db_session()
+        try:
+            result = session.query(BaseCliente).all()
+            dados = {}
+
+            for r in result:
+                produto = r.family
+                if produto not in dados:
+                    dados[produto] = {
+
+                        'sellout_m1': r.sellout_m1,
+                        'sellout_m2': r.sellout_m2,
+                        'sellout_m3': r.sellout_m3
+                    }
+            return {'dados': dados}, 200
+        except Exception as e:
+            return {"message": str(e)}, 500
+        finally:
+            session.close()
+
 @api.route('/base_id')
 class BaseIdList(Resource):
     def get(self):

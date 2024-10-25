@@ -16,5 +16,8 @@
     },
     "pages/desc_medicamentos.html": {
         "tableName": "desc_medicamentos"
+    },
+    "pages/dashboard.html": {
+        "tableName": "desc_medicamentos"
     }
 }
