@@ -52,7 +52,7 @@ function runPageSpecificScript(config) {
 }
 
 async function populateGrid(table, tbody) {
-    let url = `http://localhost:5000/api/${table}`;
+    let url = `http://127.0.0.1:5000/api/${table}`;
 
     try {
         const response = await fetch(url);

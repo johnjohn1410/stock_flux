@@ -5,7 +5,7 @@ function sendMessage(userInput) {
         appendMessage('user', message);
         userInput.value = '';
 
-        fetch('http://localhost:5000/api/chatbot', {
+        fetch('http://127.0.0.1:5000/api/chatbot', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

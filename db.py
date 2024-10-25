@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 import json
 
 def load_credentials():
-    with open('credentials.json') as f:
+    with open('./credentials.json') as f:
         return json.load(f)
 
 def get_db_engine():
